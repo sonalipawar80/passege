@@ -1,0 +1,10 @@
+<h2>Airline Passenger</h2>
+<app-passenger-count [totalcheckIncount]="checkIncount" [totalpassCount]="passengerData.length"></app-passenger-count>
+
+<ul class="list-group my-5">
+    <li class="list-group-item" *ngFor="let pass of passengerData">
+        {{pass.fullname}}
+    </li>
+</ul>
+
+<app-passenger-card (emitcheckInRemo)="getCheckInCount()" [passObj]="pass" *ngFor="let pass of passengerData"></app-passenger-card>
