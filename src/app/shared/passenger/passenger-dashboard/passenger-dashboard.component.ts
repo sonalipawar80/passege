@@ -10,6 +10,7 @@ import { Ipassenger } from '../../models/passenger';
 export class PassengerDashboardComponent implements OnInit {
 passengerData:Array<Ipassenger>=[]
 checkIncount!:number;
+showWelcome:boolean=true
   constructor(
     private _passengerService:PassengersService
   ) { }
@@ -18,6 +19,10 @@ checkIncount!:number;
     this.passengerData=this._passengerService.fetchallPassengers()
     this.getCheckInCount()   
     // prder imp 
+
+    setTimeout(() => {
+      this.showWelcome = false;
+    }, 3000);
   }
 
   getCheckInCount(){

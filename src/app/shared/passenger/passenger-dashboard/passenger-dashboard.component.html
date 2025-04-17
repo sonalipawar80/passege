@@ -1,10 +1,25 @@
-<h2>Airline Passenger</h2>
-<app-passenger-count [totalcheckIncount]="checkIncount" [totalpassCount]="passengerData.length"></app-passenger-count>
 
-<ul class="list-group my-5">
-    <li class="list-group-item" *ngFor="let pass of passengerData">
-        {{pass.fullname}}
-    </li>
-</ul>
-
-<app-passenger-card (emitcheckInRemo)="getCheckInCount()" [passObj]="pass" *ngFor="let pass of passengerData"></app-passenger-card>
+<div *ngIf="showWelcome" class="welcome-screen">
+    <h1>Welcome to Airline ✈️</h1>
+  </div>
+<div *ngIf="!showWelcome" class="container my-5">
+    <h2 class="text-center mb-4">Airline Passenger Dashboard</h2>
+  
+    <div class="card p-4 mb-5 shadow-sm">
+      <app-passenger-count 
+        [totalcheckIncount]="checkIncount" 
+        [totalpassCount]="passengerData.length">
+      </app-passenger-count>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let pass of passengerData">
+        <app-passenger-card 
+          class="h-100"
+          (emitcheckInRemo)="getCheckInCount()" 
+          [passObj]="pass">
+        </app-passenger-card>
+      </div>
+    </div>
+  </div>
+  

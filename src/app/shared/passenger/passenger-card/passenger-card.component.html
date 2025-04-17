@@ -2,12 +2,17 @@
     <mat-card-title>
         <!-- <p *ngIf="!isEditMode" >{{passObj.fullname}}</p> -->
 
-        <div class="form-group">
+        <div class="form-group checkIncolorParent">
             <input type="text"
             #fullName 
             [disabled]="!isEditMode" 
             [value]="passObj.fullname" 
             class="form-control fullname">
+            <span class="chekInColor" [ngClass]="{
+              'bg-success':passObj.checkedIn,
+              'bg-danger': !passObj.checkedIn
+
+            }"></span>
         </div>
     </mat-card-title>
     <mat-card-content>
