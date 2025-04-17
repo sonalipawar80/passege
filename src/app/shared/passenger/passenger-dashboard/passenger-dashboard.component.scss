@@ -6,7 +6,7 @@
   
   h2 {
     font-weight: bold;
-    color: #2c3e50;
+    color: #e9eff5;
   }
   
   .card {
@@ -31,31 +31,35 @@
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
-  
   .welcome-screen {
-    width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
+    color: #ffffff;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    color: #ffffff; 
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
     overflow: hidden;
-    animation: slideUp 1.5s ease-in-out;
+    position: relative;
+    animation: slideUpCenter 1.5s ease-out forwards;
+    opacity: 0;
   }
   
-  @keyframes slideUp {
+  .welcome-screen h1 {
+    animation: slideUpCenter 1.5s ease-out forwards;
+  }
+  
+  @keyframes slideUpCenter {
     0% {
-      transform: translateY(100%);
+      transform: translateY(100px);
+      transform: scale(0.8); /* Niche se */
       opacity: 0;
     }
     100% {
       transform: translateY(0);
+      transform: scale(1); /* Center me */
       opacity: 1;
     }
   }
