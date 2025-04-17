@@ -11,6 +11,12 @@
         [totalpassCount]="passengerData.length">
       </app-passenger-count>
     </div>
+
+    <ul class="list-group my-5">
+        <li class="list-group-item" *ngFor="let pass of passengerData">
+            {{pass.fullname}}
+        </li>
+    </ul>
   
     <div class="row">
       <div class="col-md-4 mb-4" *ngFor="let pass of passengerData">
@@ -22,4 +28,3 @@
       </div>
     </div>
   </div>
-  
