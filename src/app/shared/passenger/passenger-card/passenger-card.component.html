@@ -1,32 +1,26 @@
-<mat-card class="example-card mb-5">
+<mat-card class="example-card">
     <mat-card-title>
-        <!-- <p *ngIf="!isEditMode" >{{passObj.fullname}}</p> -->
 
-        <div class="form-group checkIncolorParent">
-            <input type="text"
-            #fullName 
-            [disabled]="!isEditMode" 
-            [value]="passObj.fullname" 
-            class="form-control fullname">
-            <span class="chekInColor" [ngClass]="{
-              'bg-success':passObj.checkedIn,
-              'bg-danger': !passObj.checkedIn
-
-            }"></span>
+        <div class="form-group checkInparents">
+            <input 
+            #fullName
+            type="text"
+            [disabled]="!isModeEdited"
+            [value]="pass.fullname" 
+            class="form-control fullname"
+             >
+             <span class="checkIncolor" [ngClass]="{
+                'bg-success': pass.checkedIn,
+                'bg-danger':!pass.checkedIn
+             }"></span>
         </div>
     </mat-card-title>
     <mat-card-content>
-      <p>Check In Date: {{passObj.checkInDate? (passObj.checkInDate | date) :'not checkec In yet'}}</p>
-      <p>Children :{{passObj.children? passObj.children.length :0}}</p>
+      <p>Check In Date:{{pass.checkInDate? (pass.checkInDate | date): 'Not Check In Yet'}}</p>
+      <p>Children :{{pass.children? pass.children.length :0}}</p>
     </mat-card-content>
-    <mat-divider inset></mat-divider>
     <mat-card-actions>
-      <!-- <button mat-raised-button (click)="isEditMode=!isEditMode" color="primary" *ngIf="!isEditMode">Edit</button>
-      <button mat-raised-button color="primary"(click)="isEditMode=!isEditMode" *ngIf="isEditMode">Done</button>
-      <button mat-raised-button color="warn">Remove</button> -->
-
-      <button mat-raised-button (click)="OnclickUpdatePass(fullName)" color="primary">{{isEditMode? 'Done':'Edit'}}</button>
-      <button mat-raised-button color="warn" (click)="onRemovePass()">Remove</button> 
-
+        <button mat-raised-button color="primary" (click)="onclickUpdate(fullName)">{{isModeEdited? 'Done' :'Edit'}}</button>
+      <button mat-raised-button color="warn" (click)="removePass()">Remove</button>
     </mat-card-actions>
   </mat-card>

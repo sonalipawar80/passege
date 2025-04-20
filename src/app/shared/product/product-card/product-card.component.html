@@ -1,0 +1,14 @@
+
+<mat-card class="example-card mb-4">
+    <mat-card-title>{{Prod.pname}}</mat-card-title>
+    <mat-card-content>
+      <p>{{Prod.pdetails}}
+        <strong>{{Prod.pstatus}}</strong>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="OnstsUpd(isproductSts.Inprogress)">In Progress</button>
+      <button mat-raised-button color="primary" (click)="OnstsUpd(isproductSts.Dispatched)">Dispatch</button>
+      <button mat-raised-button color="primary" (click)="OnstsUpd(isproductSts.Delivered)">Delivered</button>
+    </mat-card-actions>
+  </mat-card>

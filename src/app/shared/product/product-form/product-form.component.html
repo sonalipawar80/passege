@@ -1,0 +1,35 @@
+<mat-card class="example-card">
+    <mat-card-content>
+        <form #productForm="ngForm" (submit)="onformSubmit()">
+            <div class="form-group">
+                <label for="pname"> Product Name</label>
+                <input type="text" 
+                class="form-control" 
+                required
+                ngModel
+                #pname="ngModel"
+                id="pname"
+                name="pname"
+                >
+            </div>
+            <ng-container>
+                <strong *ngIf="pname.touched && pname.hasError('required')" class="text-danger"> this field is Requard !</strong>
+            </ng-container>
+            <div class="form-group">
+                <label for="pdetails"> Product Details</label>
+                <textarea rows="4" 
+                class="form-control" 
+                required
+                ngModel
+                id="pdetails"
+                name="pdetails"
+                #pdetails="ngModel"
+                ></textarea>
+                <ng-container>
+                    <strong *ngIf="pdetails.touched && pdetails.hasError('required')" class="text-danger"> this field is Requard !</strong>
+                </ng-container>
+            </div>
+            <button type="submit" class="btn btn-sm btn-info">Add Product</button>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PassengerModule } from './shared/passenger/passenger.module';
+import { ProductModule } from './shared/product/product.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PassengerModule } from './shared/passenger/passenger.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    PassengerModule
+    PassengerModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]

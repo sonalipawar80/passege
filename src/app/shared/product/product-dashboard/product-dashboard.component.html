@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+           <div class="card">
+            <div class="card-body">
+                <app-product-form></app-product-form>
+            </div>
+           </div>
+            <hr>
+            <div class="d-flex  flex-column-reverse">
+                <app-product-card *ngFor="let product of productArr" [Prod]="product"></app-product-card>
+            </div>
+        </div>
+    </div>
+</div>

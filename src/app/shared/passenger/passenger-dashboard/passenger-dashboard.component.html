@@ -1,30 +1,19 @@
 
-<div *ngIf="showWelcome" class="welcome-screen">
-    <h1 class="text-white">Welcome to Airline ✈️</h1>
-  </div>
-<div *ngIf="!showWelcome" class="container my-5">
-    <h2 class="text-center mb-4">Airline Passenger Dashboard</h2>
-  
-    <div class="card p-4 mb-5 shadow-sm">
-      <app-passenger-count 
-        [totalcheckIncount]="checkIncount" 
-        [totalpassCount]="passengerData.length">
-      </app-passenger-count>
-    </div>
+<div class="container mb-4">
+    <h2 class="bg-white"> Airline Passanger Dashboard</h2>
 
-    <ul class="list-group my-5">
-        <li class="list-group-item" *ngFor="let pass of passengerData">
+    <div class="card mb-4">
+        <app-passenger-count [checkInCount]="checkInCount" [passCount]="passangerData.length"></app-passenger-count>
+    </div>
+    <ul class="list-group mb-4">
+        <li class="list-group-item" *ngFor="let pass of passangerData">
             {{pass.fullname}}
         </li>
     </ul>
-  
     <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let pass of passengerData">
-        <app-passenger-card 
-          class="h-100"
-          (emitcheckInRemo)="getCheckInCount()" 
-          [passObj]="pass">
-        </app-passenger-card>
-      </div>
+        <div class="col-md-4 mb-4" *ngFor="let passData of passangerData">
+            <app-passenger-card
+            [pass]="passData" (emitcheckInRemo)="getAllCheckedCount()"></app-passenger-card>
+        </div>
     </div>
-  </div>
+</div>

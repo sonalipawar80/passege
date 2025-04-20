@@ -8,25 +8,20 @@ import { Ipassenger } from '../../models/passenger';
   styleUrls: ['./passenger-dashboard.component.scss']
 })
 export class PassengerDashboardComponent implements OnInit {
-passengerData:Array<Ipassenger>=[]
-checkIncount!:number;
-showWelcome:boolean=true
-  constructor(
-    private _passengerService:PassengersService
-  ) { }
+passangerData:Array<Ipassenger>=[]
+checkInCount!:number;
 
-  ngOnInit(): void {
-    this.passengerData=this._passengerService.fetchallPassengers()
-    this.getCheckInCount()   
-    // prder imp 
 
-    setTimeout(() => {
-      this.showWelcome = false;
-    }, 3000);
-  }
+constructor(
+  private _passengerService:PassengersService
+){}
+ngOnInit(): void {
+  this.passangerData=this._passengerService.fetchallpassengers()
+  this.getAllCheckedCount()
+}
 
-  getCheckInCount(){
-    this.checkIncount=this.passengerData.filter(pass=>pass.checkInDate).length
-  }
+getAllCheckedCount(){
+  this.checkInCount=this.passangerData.filter(p=>p.checkInDate).length
+}
 
 }

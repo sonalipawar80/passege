@@ -8,29 +8,35 @@ import { PassengersService } from '../../services/passengers.service';
   styleUrls: ['./passenger-card.component.scss']
 })
 export class PassengerCardComponent implements OnInit {
-@Input() passObj!:Ipassenger;
-@Output() emitcheckInRemo:EventEmitter<boolean>=new EventEmitter
-isEditMode:boolean=false;
-  constructor(private _passengerServ:PassengersService) { }
+  @Input() pass!:Ipassenger;
+  @Output() emitcheckInRemo:EventEmitter<boolean>=new EventEmitter
+ isModeEdited!:boolean;
+  constructor(
+    private _passService:PassengersService
+  ){
 
-  ngOnInit(): void {
   }
-
-OnclickUpdatePass(fullNameControl:HTMLInputElement){
-// api call : is in edit mode ==true
-if(this.isEditMode){
-  let updatedPassObj:Ipassenger={...this.passObj, fullname:fullNameControl.value}
-  this._passengerServ.updatePassName(updatedPassObj)
+ngOnInit(): void {
+  
 }
 
-    this.isEditMode=!this.isEditMode;
+onclickUpdate(fullName:HTMLInputElement){
+  if(this.isModeEdited){
+    let upadatedPassObj:Ipassenger={...this.pass, fullname:fullName.value};
+    this._passService.updatePass(upadatedPassObj)
+  }
+  this.isModeEdited=!this.isModeEdited
 }
 
-onRemovePass(){
-  let removedobj=this.passObj;
-  this._passengerServ.removepass(removedobj)
-  this.emitcheckInRemo.emit(true)
-  console.log(removedobj)
-}
+removePass(){
+  let removedObj=this.pass;
+  console.log(removedObj)
+  let confirmResult=confirm('Are you sure Remove Product')
+  if(confirmResult){
+    this._passService.removePass(removedObj)
+    this.emitcheckInRemo.emit(true)
+  }
+  
 
+}
 }

@@ -51,22 +51,22 @@ export class PassengersService {
 
   constructor(private _snakbar:SnakbarService) { }
 
-
-  fetchallPassengers():Array<Ipassenger>{
-    return this.passengersArr
+  fetchallpassengers(){
+    return this.passengersArr;
   }
 
-  updatePassName(updetPassObj:Ipassenger){
-    let getIndex=this.passengersArr.findIndex(p=>p.id===updetPassObj.id)
-    this.passengersArr[getIndex]=updetPassObj;
-    this._snakbar.notification(`the name of passenger is Updated to ${updetPassObj.fullname}`)
-
+  updatePass(upadatedPassObj:Ipassenger){
+    let getIndex=this.passengersArr.findIndex(p=>p.id===upadatedPassObj.id)
+    this.passengersArr[getIndex]=upadatedPassObj
+    this._snakbar.notification(` the passenger name updated Successfully ${upadatedPassObj.fullname}`)
   }
 
-  removepass(passObj:Ipassenger){
+  removePass(passObj:Ipassenger){
     let getIndex=this.passengersArr.findIndex(p=>p.id===passObj.id)
     this.passengersArr.splice(getIndex,1)
-    this._snakbar.notification(` ${passObj.fullname} passenger removed successfully`)
-
+    
+    this._snakbar.notification(` the passenger  remove Successfully ${passObj.fullname}`)
   }
+
+
 }

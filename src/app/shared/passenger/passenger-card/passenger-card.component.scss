@@ -1,22 +1,23 @@
-.fullName{
+
+.fullname{
     font-weight: 400;
 }
-.form-control:disabled{
+.fullname:disabled{
     background-color: transparent;
     opacity: 1;
-    border-color: transparent;
-font-weight: 700;}
-
-.checkIncolorParent{
+    border-color:transparent ;
+    font-weight: 700;
+}
+.checkInparents{
     position: relative;
 }
-
-.chekInColor{
+.checkIncolor{
         border: 1px solid black;
+        display: inline-block;
         position: absolute;
-        width: 15px;
-        height: 15px;
-        top: 11px;
         left: -15px;
+        top: 11px;
         border-radius: 50%;
-}
+        height: 15px;
+        width: 15px;
+    }
